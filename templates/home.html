@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="container">
+        <h1>Welcome to the Crawler</h1>
+        <p>This site allows you to crawl through apartments for sale in 'Warszawa' region website.</p>
+        <p>Please enter your email and top apartment price to subscribe and receive your daily mail.</p>
+        <p>You can always request for an instant mail, by filling your data and clicking "Subscribe".</p>
+
+        <form action="{{ url_for('subscribe') }}" method="POST" enctype="multipart/form-data">
+            <input title="Your email will be safe with us" placeholder="Enter your email" type="email" name="email_name" required><br>
+            <input title="Enter top price" placeholder="Enter top price" type="number" min="100000" max="2000000" step="1000" name="top_price_name" required><br><br>
+            <button type="submit"> Subscribe </button>
+        </form>
+    </div>
+
+    <br><br>or if you do not need it anymore:
+
+    <div>
+        <form action="{{ url_for('unsubscribe') }}" method="POST" enctype="multipart/form-data">
+            <br>
+            <input title="Unsubscribe here" placeholder="Enter your email" type="email" name="email_name" required><br><br>
+            <button type="submit"> Unsubscribe </button>
+        </form>
+    </div>
+
+{% endblock %}
