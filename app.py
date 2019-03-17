@@ -2,9 +2,18 @@ from flask import Flask, render_template, request
 import backend
 from flask_sqlalchemy import SQLAlchemy
 
+#this is for heroku
+import os
+from urllib.parse import urlparse
+
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:postgres123@localhost/crawler'
+#use locally
+#app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:postgres123@localhost/crawler'
+
+#use on heroku
+app.config['SQLALCHEMY_DATABASE_URI'] = urlparse.urlparse(os.environ["DATABASE_URL"])
+
 db = SQLAlchemy(app)
 
 
