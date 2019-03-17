@@ -12,7 +12,9 @@ app = Flask(__name__)
 #app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:postgres123@localhost/crawler'
 
 #use on heroku
-app.config['SQLALCHEMY_DATABASE_URI'] = urlparse.urlparse(os.environ["DATABASE_URL"])
+
+DATABASE_URL = '$(heroku config:get DATABASE_URL -a pl-altar-crawler)'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get["DATABASE_URL"]
 
 db = SQLAlchemy(app)
 
