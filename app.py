@@ -14,7 +14,7 @@ app = Flask(__name__)
 #use on heroku
 
 DATABASE_URL = '$(heroku config:get DATABASE_URL -a pl-altar-crawler)'
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get["DATABASE_URL"]
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get[DATABASE_URL]
 
 db = SQLAlchemy(app)
 
