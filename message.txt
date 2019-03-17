@@ -1,5 +1,0 @@
-['BIELANY,', '386000zł', 'https://www.anonse.com/lista/rejon/warszawski/kategoria/nieruchomosci/podkategoria/mieszkania/rt/sprzedam/ogloszenie/bielany-m-3-44m-p-5-10-sprzedam-mieszkanie-dwupokojowe-12831346'] 
-['OCHOTA,', '351000zł', 'https://www.anonse.com/lista/rejon/warszawski/kategoria/nieruchomosci/podkategoria/mieszkania/rt/sprzedam/ogloszenie/ochota-m-3-37m-p-6-10-wlasnosciowe-do-zamieszkania-12835373'] 
-['WŁOCHY,', '249000zł', 'https://www.anonse.com/lista/rejon/warszawski/kategoria/nieruchomosci/podkategoria/mieszkania/rt/sprzedam/ogloszenie/wlochy-m-2-20m-p-0-4-wlasnosciowe-do-zamieszkania-12833089'] 
-['WOLA,', '275000zł', 'https://www.anonse.com/lista/rejon/warszawski/kategoria/nieruchomosci/podkategoria/mieszkania/rt/sprzedam/ogloszenie/wola-m-2-21-5m-p-3-12-wlasnosciowe-do-12831250'] 
-['WOLA,', '320000zł', 'https://www.anonse.com/lista/rejon/warszawski/kategoria/nieruchomosci/podkategoria/mieszkania/rt/sprzedam/ogloszenie/wola-m-2-25m-p-4-4-wlasnosciowe-wolne-od-12833088'] 

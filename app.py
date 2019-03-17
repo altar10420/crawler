@@ -1,10 +1,31 @@
 from flask import Flask, render_template, request
 import backend
-from backend_database import Database
-from sqlite3 import IntegrityError
+from flask_sqlalchemy import SQLAlchemy
 
 
 app = Flask(__name__)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:postgres123@localhost/crawler'
+db = SQLAlchemy(app)
+
+
+class Data(db.Model):
+    __tablename__ = "users"
+    id = db.Column(db.Integer, primary_key=True)
+    email_ = db.Column(db.String(120), unique=True)
+    price_ = db.Column(db.Integer)
+
+    def __init__(self, email_, price_):
+        self.email_ = email_
+        self.price_ = price_
+
+    def __repr__(self):
+        return '<User {}>'.format(self.email_)
+
+
+# now in python console crete database columns
+# python3
+# from app import db
+# db.create_all()
 
 
 @app.route('/')
@@ -20,11 +41,12 @@ def subscribe():
         email = request.form["email_name"]
         top_price = request.form["top_price_name"]
         backend.flat_spider(email, top_price)
-        database = Database("users.db")
         try:
-            database.insert(email, top_price)
-        except IntegrityError:
-            print("Database error while entering data.")
+            data = Data(email, top_price)
+            db.session.add(data)
+            db.session.commit()
+        except:
+            print("Database error while deleting data.")
             return render_template("error.html")
 
     return render_template("subscribe.html")
@@ -35,12 +57,9 @@ def unsubscribe():
 
     if request.method == 'POST':
         email = request.form["email_name"]
-        database = Database("users.db")
-        try:
-            database.delete(email)
-        except IntegrityError:
-            print("Database error while deleting data.")
-            return render_template("error.html")
+        data = Data.query.filter_by(email_=email)
+        data.delete()
+        db.session.commit()
 
     return render_template("unsubscribe.html")
 
