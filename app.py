@@ -6,13 +6,8 @@ from flask_sqlalchemy import SQLAlchemy
 app = Flask(__name__)
 
 # use locally
-# app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:postgres123@localhost/crawler'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:postgres123@localhost/crawler'
 
-# use on heroku - to check use heroku bash
-# $ heroku run bash --app <appName>
-# heroku config:get DATABASE_URL -a <appName>
-
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://xvspntenblyonx:71b25c0e31b073267983b727e543c515d781969b920eb14a72bfa648d67622d2@ec2-54-221-236-144.compute-1.amazonaws.com:5432/df7dpe8hut5e7b'
 
 db = SQLAlchemy(app)
 
